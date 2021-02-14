@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.treinamentoSpring.api.entidades.UsuarioEntidade;
+import com.treinamentoSpring.api.entidades.Usuario;
 import com.treinamentoSpring.api.repositories.UsuarioRepository;
 
 @Configuration
@@ -20,8 +20,8 @@ public class TesteConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		UsuarioEntidade usuario01 = new UsuarioEntidade(null, "Rafael", "rafael@gmail.com", "111-111", "123456");
-		UsuarioEntidade usuario02 = new UsuarioEntidade(null, "Rafael2", "rafael02@gmail.com", "222-222", "123456");
+		Usuario usuario01 = new Usuario(null, "Rafael", "rafael@gmail.com", "111-111", "123456");
+		Usuario usuario02 = new Usuario(null, "Rafael2", "rafael02@gmail.com", "222-222", "123456");
 
 		usuarioRepository.saveAll(Arrays.asList(usuario01, usuario02));
 

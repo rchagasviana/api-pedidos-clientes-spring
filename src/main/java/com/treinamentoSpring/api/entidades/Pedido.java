@@ -1,35 +1,41 @@
 package com.treinamentoSpring.api.entidades;
 
 import java.io.Serializable;
+import java.time.Instant;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-public class UsuarioEntidade implements Serializable {
+@Table(name="tb_pedidos")
+public class Pedido implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
-	private String email;
-	private String telefone;
-	private String senha;
+	@Column(name="data_pedido")
+	private Instant data;
 
-	public UsuarioEntidade() {
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
+	private Usuario usuarios;
+
+	public Pedido() {
 		super();
 	}
 
-	public UsuarioEntidade(Long id, String nome, String email, String telefone, String senha) {
+	public Pedido(Long id, Instant data, Usuario usuarios) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.telefone = telefone;
-		this.senha = senha;
+		this.data = data;
+		this.usuarios = usuarios;
 	}
 
 	public Long getId() {
@@ -40,36 +46,20 @@ public class UsuarioEntidade implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public Instant getData() {
+		return data;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setData(Instant data) {
+		this.data = data;
 	}
 
-	public String getEmail() {
-		return email;
+	public Usuario getUsuarios() {
+		return usuarios;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setUsuarios(Usuario usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	@Override
@@ -88,7 +78,7 @@ public class UsuarioEntidade implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UsuarioEntidade other = (UsuarioEntidade) obj;
+		Pedido other = (Pedido) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

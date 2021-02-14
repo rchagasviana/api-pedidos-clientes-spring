@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.treinamentoSpring.api.entidades.UsuarioEntidade;
+import com.treinamentoSpring.api.entidades.Usuario;
 import com.treinamentoSpring.api.services.UsuarioServico;
 
 @RestController
@@ -20,14 +20,14 @@ public class UsuarioResource {
 	private UsuarioServico servico;
 
 	@GetMapping
-	public ResponseEntity<List<UsuarioEntidade>> buscarTodos() {
-		List<UsuarioEntidade> usuarios = servico.buscarTodos();
+	public ResponseEntity<List<Usuario>> buscarTodos() {
+		List<Usuario> usuarios = servico.buscarTodos();
 		return ResponseEntity.ok().body(usuarios);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<UsuarioEntidade> buscarId(@PathVariable Long id) {
-		UsuarioEntidade usuario = servico.buscarPorId(id);
+	public ResponseEntity<Usuario> buscarId(@PathVariable Long id) {
+		Usuario usuario = servico.buscarPorId(id);
 		return ResponseEntity.ok().body(usuario);
 	}
 
