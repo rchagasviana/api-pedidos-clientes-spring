@@ -10,17 +10,17 @@ import com.treinamentoSpring.api.entidades.Pedido;
 import com.treinamentoSpring.api.repositories.PedidoRepository;
 
 @Service
-public class PedidoServico {
+public class PedidoService {
 
 	@Autowired
-	private PedidoRepository repository;
+	private PedidoRepository repositorio;
 
 	public List<Pedido> buscarTodos() {
-		return repository.findAll();
+		return repositorio.findAll();
 	}
 
 	public Pedido buscarPorId(Long id) {
-		Optional<Pedido> pedido = repository.findById(id);
+		Optional<Pedido> pedido = repositorio.findById(id);
 		return pedido.get();
 	}
 

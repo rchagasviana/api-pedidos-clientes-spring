@@ -10,17 +10,17 @@ import com.treinamentoSpring.api.entidades.Usuario;
 import com.treinamentoSpring.api.repositories.UsuarioRepository;
 
 @Service
-public class UsuarioServico {
+public class UsuarioService {
 
 	@Autowired
-	private UsuarioRepository repository;
+	private UsuarioRepository repositorio;
 
 	public List<Usuario> buscarTodos() {
-		return repository.findAll();
+		return repositorio.findAll();
 	}
 
 	public Usuario buscarPorId(Long id) {
-		Optional<Usuario> usuario = repository.findById(id);
+		Optional<Usuario> usuario = repositorio.findById(id);
 		return usuario.get();
 	}
 

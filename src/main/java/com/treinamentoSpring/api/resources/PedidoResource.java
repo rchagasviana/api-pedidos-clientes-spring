@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.treinamentoSpring.api.entidades.Pedido;
-import com.treinamentoSpring.api.services.PedidoServico;
+import com.treinamentoSpring.api.services.PedidoService;
 
 @RestController
 @RequestMapping(value = "/pedidos")
 public class PedidoResource {
 
 	@Autowired
-	private PedidoServico servico;
+	private PedidoService servico;
 
 	@GetMapping
 	public ResponseEntity<List<Pedido>> buscarTodos() {

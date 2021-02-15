@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.treinamentoSpring.api.entidades.Usuario;
-import com.treinamentoSpring.api.services.UsuarioServico;
+import com.treinamentoSpring.api.services.UsuarioService;
 
 @RestController
 @RequestMapping(value = "/usuarios")
 public class UsuarioResource {
 
 	@Autowired
-	private UsuarioServico servico;
+	private UsuarioService servico;
 
 	@GetMapping
 	public ResponseEntity<List<Usuario>> buscarTodos() {

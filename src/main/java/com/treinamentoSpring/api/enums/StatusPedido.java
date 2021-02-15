@@ -2,6 +2,7 @@ package com.treinamentoSpring.api.enums;
 
 public enum StatusPedido {
 
+	//evitar inconsistência, caso novos estados sejam adicionados
 	AGUARDANDO_PAGAMENTO(0), PAGO(1), ENVIADO(2), ENTREGUE(3), CANCELADO(4);
 
 	private int codigo;
