@@ -14,17 +14,29 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-produtos-spring</name>
 	<description>Demo project for Spring Boot</description>
+<<<<<<< HEAD
 
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 
+=======
+	
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	
+>>>>>>> 4257c0003fb9cee3fb9f2a26e355245c2ce3349a
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 4257c0003fb9cee3fb9f2a26e355245c2ce3349a
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -42,6 +54,11 @@
 			<scope>runtime</scope>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+		
+	
+>>>>>>> 4257c0003fb9cee3fb9f2a26e355245c2ce3349a
 	</dependencies>
 
 	<build>
