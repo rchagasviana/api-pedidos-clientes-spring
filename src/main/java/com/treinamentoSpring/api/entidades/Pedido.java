@@ -12,29 +12,37 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.treinamentoSpring.api.enums.StatusPedido;
+
 @Entity
-@Table(name="tb_pedidos")
+@Table(name = "tb_pedidos")
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name="data_pedido")
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+	@Column(name = "data_pedido")
 	private Instant data;
 
+	private Integer statusPedido;
+
 	@ManyToOne
-	@JoinColumn(name="idUsuario")
+	@JoinColumn(name = "idUsuario")
 	private Usuario usuarios;
 
 	public Pedido() {
 		super();
 	}
 
-	public Pedido(Long id, Instant data, Usuario usuarios) {
+	public Pedido(Long id, Instant data, StatusPedido statusPedido, Usuario usuarios) {
 		super();
 		this.id = id;
 		this.data = data;
+		setStatusPedido(statusPedido);//this.statusPedido = statusPedido;
 		this.usuarios = usuarios;
 	}
 
@@ -52,6 +60,14 @@ public class Pedido implements Serializable {
 
 	public void setData(Instant data) {
 		this.data = data;
+	}
+
+	public StatusPedido getStatusPedido() {
+		return StatusPedido.valueOf(statusPedido);
+	}
+
+	public void setStatusPedido(StatusPedido statusPedido) {
+		this.statusPedido = statusPedido.getCodigo();
 	}
 
 	public Usuario getUsuarios() {
