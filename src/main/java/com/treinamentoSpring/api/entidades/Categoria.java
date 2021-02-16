@@ -23,8 +23,8 @@ public class Categoria implements Serializable {
 	private Long id;
 	private String nome;
 
-	@JsonIgnore //evitar looping em relacionamento birecional
-	@ManyToMany(mappedBy = "categorias") 
+	@JsonIgnore // evitar looping em relacionamento birecional
+	@ManyToMany(mappedBy = "categorias")
 	private Set<Produto> produtos = new HashSet<>();
 
 	public Categoria() {

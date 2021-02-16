@@ -15,7 +15,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_produto")
 public class Produto {
-
+	/*
+	 * Lembrete!!
+	Relaciona-se com a entidade categoria com a cardinalidade m:n,
+	no entanto na terceira tabela não possui atributos próprios.
+	Portanto, bastando mapear como especificado abaixo o relacionamento m:n
+	*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
