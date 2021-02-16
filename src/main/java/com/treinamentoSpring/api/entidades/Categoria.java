@@ -1,11 +1,14 @@
 package com.treinamentoSpring.api.entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +20,9 @@ public class Categoria implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+
+	@ManyToMany(mappedBy = "categorias") 
+	private Set<Produto> produtos = new HashSet<>();
 
 	public Categoria() {
 		super();
@@ -42,6 +48,10 @@ public class Categoria implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Set<Produto> getProdutos() {
+		return produtos;
 	}
 
 	@Override
